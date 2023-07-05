@@ -1,5 +1,5 @@
 
-const Banner = () => {
+const Best_Selling = () => {
     return (
         <section>
             
@@ -7,4 +7,4 @@ const Banner = () => {
     );
 };
 
-export default Banner;
+export default Best_Selling;
