@@ -1,7 +1,7 @@
 
 const Banner = () => {
     return (
-        <section>
+        <section className="h-[2000px]">
             
         </section>
     );
