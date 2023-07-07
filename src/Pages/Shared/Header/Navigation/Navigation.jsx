@@ -4,7 +4,7 @@ import Theme from "../Theme/Theme";
 
 const Navigation = () => {
     return (
-        <nav className="py-3 bg-base-content text-base-300 sticky top-0 hidden md:block">
+        <nav className="py-3 bg-base-content text-base-300 sticky top-0 hidden md:block z-30">
             <div className="container">
                 <div className="flex justify-between">
                     <Nav_Menu />
