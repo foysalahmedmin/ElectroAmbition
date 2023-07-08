@@ -6,6 +6,8 @@ import Shop from "../Pages/Shop/Shop/Shop";
 import Contact from "../Pages/Contact/Contact/Contact";
 import Cart from "../Pages/Cart/Cart/Cart";
 import Product from "../Pages/Product/Product/Product";
+import CategorizeShop from "../Pages/Shop/CategorizeShop/CategorizeShop";
+import ShopAll from "../Pages/Shop/CategorizeShop/ShopAll";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/shop",
-        element: <Shop />
+        element: <Shop />,
+        children: [
+          {
+            path: "/shop",
+            element: <ShopAll />,
+            loader: async () => fetch(`http://localhost:5000/totalProducts/all`)
+          },
+          {
+            path: ":category",
+            element: <CategorizeShop />,
+            loader: async ({ params }) => fetch(`http://localhost:5000/totalProducts/${params.category}`)
+          }
+        ]
       },
       {
         path: "/contact",

@@ -1,34 +1,29 @@
-import { useEffect, useState } from "react";
-import Product_Card from "../../../Components/Product_Card/Product_Card";
-import Section_Title from "../../../Components/Section_Title/Section_Title";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
+import Section_Title from "../../../Components/Section_Title/Section_Title";
+import Product_Card from "../../../Components/Product_Card/Product_Card";
 
-const All_Products_Home = () => {
+const CategorizeShop = () => {
     const [products, setProducts] = useState([])
-    const [totalProduct, setTotalProduct] = useState({})
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(12);
+    const totalProduct = useLoaderData()
+    const params = useParams()
     const totalPages = Math.ceil(totalProduct?.totalProduct / itemsPerPage);
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index);
     useEffect(() => {
-        axios.get(`http://localhost:5000/totalProducts/all`)
-            .then(result => {
-                setTotalProduct(result.data)
-            })
-    }, []);
-    useEffect(() => {
-        if (totalProduct) {
-            axios.get(`http://localhost:5000/products/all?page=${currentPage}&&limit=${itemsPerPage}`)
+        if (totalProduct && params.category) {
+            axios.get(`http://localhost:5000/products/${params?.category}?page=${currentPage}&&limit=${itemsPerPage}`)
                 .then(result => setProducts(result.data))
         }
-    }, [currentPage, itemsPerPage, totalProduct]);
-
+    }, [currentPage, itemsPerPage, totalProduct, params]);
     return (
-        <section className="py-5 md:py-10">
+        <section>
             <div className="container">
-                <Section_Title firstWord={'All'} secondWord={'Products'} />
+                <Section_Title firstWord={params.category} secondWord={'Products'} />
                 <div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-around items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 justify-around items-center">
                         {
                             products?.map(product => <Product_Card key={product._id} product={product} />)
                         }
@@ -54,4 +49,4 @@ const All_Products_Home = () => {
     );
 };
 
-export default All_Products_Home;
+export default CategorizeShop;
