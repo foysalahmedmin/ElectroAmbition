@@ -9,8 +9,9 @@ const Product = () => {
     return (
         <>
             <Product_Details product={product} />
+            <Reviews id={product?._id} product_code={product?.product_code} />
             <Related_Products id={product?._id} category={product?.category} />
-            <Reviews id={product?._id} product_code={product?.product_code} /> 
+
         </>
     );
 };

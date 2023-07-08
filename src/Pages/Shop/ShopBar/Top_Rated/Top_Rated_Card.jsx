@@ -4,7 +4,6 @@ import '@smastrom/react-rating/style.css'
 
 const Top_Rated_Card = ({ product }) => {
     const { _id, product_code, name, image, price, discounted_price, discount_amount, rating } = product;
-    console.log(rating)
     return (
         <Link to={`/product/${_id}`}>
             <div className="p-1 border border-base-content group transition-all flex flex-row-reverse justify-between items-center">

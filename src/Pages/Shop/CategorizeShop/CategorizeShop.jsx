@@ -14,7 +14,7 @@ const CategorizeShop = () => {
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index);
     useEffect(() => {
         if (totalProduct && params.category) {
-            axios.get(`http://localhost:5000/products/${params?.category}?page=${currentPage}&&limit=${itemsPerPage}`)
+            axios.get(`https://electro-ambition-server.vercel.app/products/${params?.category}?page=${currentPage}&&limit=${itemsPerPage}`)
                 .then(result => setProducts(result.data))
         }
     }, [currentPage, itemsPerPage, totalProduct, params]);

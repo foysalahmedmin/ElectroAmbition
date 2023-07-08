@@ -14,7 +14,7 @@ const ShopAll = () => {
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index);
     useEffect(() => {
         if (totalProduct) {
-            axios.get(`http://localhost:5000/products/all?page=${currentPage}&&limit=${itemsPerPage}&&sort=${sort}`)
+            axios.get(`https://electro-ambition-server.vercel.app/products/all?page=${currentPage}&&limit=${itemsPerPage}&&sort=${sort}`)
                 .then(result => setProducts(result.data))
         }
     }, [currentPage, itemsPerPage, totalProduct, sort]);

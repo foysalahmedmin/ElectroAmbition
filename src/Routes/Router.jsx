@@ -26,12 +26,12 @@ const router = createBrowserRouter([
           {
             path: "/shop",
             element: <ShopAll />,
-            loader: async () => fetch(`http://localhost:5000/totalProducts/all`)
+            loader: async () => fetch(`https://electro-ambition-server.vercel.app/totalProducts/all`)
           },
           {
             path: ":category",
             element: <CategorizeShop />,
-            loader: async ({ params }) => fetch(`http://localhost:5000/totalProducts/${params.category}`)
+            loader: async ({ params }) => fetch(`https://electro-ambition-server.vercel.app/totalProducts/${params.category}`)
           }
         ]
       },
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "product/:id",
         element: <Product />,
-        loader: async ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: async ({ params }) => fetch(`https://electro-ambition-server.vercel.app/product/${params.id}`)
       }
     ]
   },

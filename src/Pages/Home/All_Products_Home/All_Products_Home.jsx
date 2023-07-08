@@ -11,14 +11,14 @@ const All_Products_Home = () => {
     const totalPages = Math.ceil(totalProduct?.totalProduct / itemsPerPage);
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index);
     useEffect(() => {
-        axios.get(`http://localhost:5000/totalProducts/all`)
+        axios.get(`https://electro-ambition-server.vercel.app/totalProducts/all`)
             .then(result => {
                 setTotalProduct(result.data)
             })
     }, []);
     useEffect(() => {
         if (totalProduct) {
-            axios.get(`http://localhost:5000/products/all?page=${currentPage}&&limit=${itemsPerPage}`)
+            axios.get(`https://electro-ambition-server.vercel.app/products/all?page=${currentPage}&&limit=${itemsPerPage}`)
                 .then(result => setProducts(result.data))
         }
     }, [currentPage, itemsPerPage, totalProduct]);

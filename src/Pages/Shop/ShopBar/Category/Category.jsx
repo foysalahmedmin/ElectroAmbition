@@ -5,7 +5,7 @@ import axios from "axios";
 const Category = () => {
     const [categories, setCategories] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/categories')
+        axios.get('https://electro-ambition-server.vercel.app/categories')
             .then(result => setCategories(result.data.categories))
     }, [])
     return (
