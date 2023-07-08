@@ -10,16 +10,16 @@ const Count = () => {
                 <ScrollTrigger onEnter={() => setCountStart(true)} onExit={() => setCountStart(false)}>
                     <div className=' grid gap-5 grid-cols-2 md:grid-cols-4 justify-center items-center'>
                         <div className='flex flex-wrap gap-3 justify-center items-center'>
-                            <span className='font-bold text-3xl text-primary'>{countStart ? <CountUp start={0} end={2} duration={2} delay={0} /> : 0}+</span> <span>Years Experience</span>
+                            <span className='font-bold text-3xl text-primary'>{countStart ? <CountUp start={0} end={155} duration={3} delay={0} /> : 0}+</span> <span>Products</span>
                         </div>
                         <div className='flex flex-wrap gap-3 justify-center items-center'>
-                            <span className='font-bold text-3xl text-primary'>{countStart ? <CountUp start={0} end={50} duration={2} delay={0} /> : 0}+</span> <span>Completed Projects</span>
+                            <span className='font-bold text-3xl text-primary'>{countStart ? <CountUp start={0} end={10} duration={3} delay={0} /> : 0}+</span> <span>Categories</span>
                         </div>
                         <div className='flex flex-wrap gap-3 justify-center items-center'>
-                            <span className='font-bold text-3xl text-primary'>{countStart ? <CountUp start={0} end={0} duration={2} delay={0} /> : 0}+</span> <span>Happy Customers</span>
+                            <span className='font-bold text-3xl text-primary'>{countStart ? <CountUp start={0} end={555} duration={3} delay={0} /> : 0}+</span> <span>Happy Customers</span>
                         </div>
                         <div className='flex flex-wrap gap-3 justify-center items-center'>
-                            <span className='font-bold text-3xl text-primary'>{countStart ? <CountUp start={0} end={5} duration={2} delay={0} /> : 0}+</span> <span>Honors and Awards</span>
+                            <span className='font-bold text-3xl text-primary'>{countStart ? <CountUp start={0} end={7} duration={3} delay={0} /> : 0}+</span> <span>Honors and Awards</span>
                         </div>
                     </div>
                 </ScrollTrigger>

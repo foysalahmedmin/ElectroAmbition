@@ -5,7 +5,6 @@ import Reviews from "../Reviews/Reviews";
 
 const Product = () => {
     const product = useLoaderData()
-    const { _id, product_code, name, image, category, origin, brand_name, about, price, discounted_price, discount_amount, stock, sold, rating } = product;
     return (
         <>
             <Product_Details product={product} />

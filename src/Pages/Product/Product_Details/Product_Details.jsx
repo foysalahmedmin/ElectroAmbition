@@ -22,6 +22,7 @@ const Product_Details = ({ product }) => {
                             <p className="mb-3">
                                 {about}
                             </p>
+                            <p>{sold} Sold-Out</p>
                             <p className="font-semibold">{stock} Product Available Only</p>
                             <div className="flex gap-1 items-center group">
                                 <p className={discount_amount ? 'font-semibold text-xs opacity-50 line-through' : 'font-semibold'}><span className="font-black ">৳</span><span>{price}</span></p>
@@ -42,7 +43,7 @@ const Product_Details = ({ product }) => {
                                 <input className="input border border-primary rounded-none" defaultValue={1} type="number" min={1} max={stock} name="quantity" id="quantity" />
                                 <button className="primary-btn border border-primary flex-1">Add to cart</button>
                             </div>
-                            <button className="secondary-btn border border-secondary w-full">Add to cart</button>
+                            <button className="secondary-btn border border-secondary w-full">Bay Now</button>
                         </div>
                     </div>
                 </div>

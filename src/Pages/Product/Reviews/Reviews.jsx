@@ -23,7 +23,7 @@ const Reviews = ({ product_code }) => {
                             {
                                 reviews?.map(review => <div className="mb-3" key={review._id}>
                                     <div className="flex gap-3">
-                                        {review.image ? <img className="w-10 h-10 rounded-full" src={review.image} alt="" /> : <FaUserCircle className="text-4xl" />}
+                                        {review.image ? <img className="w-10 h-10 rounded-full" src={review.image} alt="" /> : <FaUserCircle className="w-10 h-10" />}
                                         <div>
                                             <h3 className="font-semibold mb-1">{review.name}</h3>
                                             <p className="mb-1">

@@ -7,7 +7,7 @@ const Related_Products = ({ id, category }) => {
     const [products, setProducts] = useState([])
     useEffect(() => {
         if (category) {
-            axios.get(`https://electro-ambition-server.vercel.app/${category}/all?sort=latest&&limit=5`)
+            axios.get(`https://electro-ambition-server.vercel.app/products/${category}?sort=latest&&limit=5`)
                 .then(result => {
                     const products = result.data
                     const filter = products?.filter(product => product._id !== id)

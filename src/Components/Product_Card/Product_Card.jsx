@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import useCart from "../../Hooks/useCart";
 
 const Product_Card = ({ product }) => {
+    const {addCartHandle} = useCart()
     const { _id, product_code, name, image, price, discounted_price, discount_amount } = product;
     return (
 
@@ -23,7 +25,7 @@ const Product_Card = ({ product }) => {
                 </div>
             </Link>
 
-            <button className="primary-btn w-full">Add to cart</button>
+            <button onClick={()=>addCartHandle(product_code)} className="primary-btn w-full">Add to cart</button>
         </div>
     );
 };
