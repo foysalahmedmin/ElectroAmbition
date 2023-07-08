@@ -16,7 +16,7 @@ const Related_Products = ({ id, category }) => {
         }
     }, [category, id])
     return (
-        <section className="py-5 md:py-10">
+        <section className="py-10">
             <div className="container">
                 <Section_Title firstWord={'Related'} secondWord={'Products'} />
                 <div>

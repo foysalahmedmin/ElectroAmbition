@@ -24,7 +24,7 @@ const All_Products_Home = () => {
     }, [currentPage, itemsPerPage, totalProduct]);
 
     return (
-        <section className="py-5 md:py-10">
+        <section className="py-10">
             <div className="container">
                 <Section_Title firstWord={'All'} secondWord={'Products'} />
                 <div>

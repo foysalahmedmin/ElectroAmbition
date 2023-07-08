@@ -5,7 +5,7 @@ import useProducts from "../../../Hooks/useProducts";
 const New_Products = () => {
     const [products] = useProducts('all', 'latest', 0, 8)
     return (
-        <section className="py-5 md:py-10">
+        <section className="py-10">
             <div className="container">
                 <Section_Title firstWord={'Latest'} secondWord={'Products'} />
                 <div>

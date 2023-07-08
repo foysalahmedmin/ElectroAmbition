@@ -4,7 +4,7 @@ import '@smastrom/react-rating/style.css'
 const Product_Details = ({ product }) => {
     const { _id, product_code, name, image, category, origin, brand_name, about, price, discounted_price, discount_amount, stock, sold, rating } = product;
     return (
-        <section className="py-5 md:py-10">
+        <section className="py-10">
             <div className="container">
                 <div className="transition-all grid gap-5 md:grid-cols-2 items-center">
                     <div className="w-full p-3 border border-base-content relative overflow-hidden" >

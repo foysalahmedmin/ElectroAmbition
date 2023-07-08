@@ -4,10 +4,10 @@ import "swiper/css";
 
 const Banner = () => {
     return (
-        <section className="py-5 md:py-10">
+        <section className="py-10">
             <div className="container">
                 <Swiper className="mySwiper">
-                    <SwiperSlide className='flex gap-5 flex-row-reverse justify-between items-center'>
+                    <SwiperSlide className='md:flex gap-5 flex-row-reverse justify-between items-center'>
                         <div><img src={bannerImg1} alt="" /></div>
                         <div className="w-1/2">
                             <h1 className="text-5xl font-bold mb-3">
