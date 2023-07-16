@@ -4,6 +4,7 @@ import logo from "../../../../assets/Images/electroAmbition-Logo.svg"
 import Cart_Count from "../Cart_Count/Cart_Count";
 import Theme from "../Theme/Theme";
 import Search from "../Search/Search";
+import Cart_Bar from "../Cart_Count/Cart_Bar/Cart_Bar";
 
 const Responsive_Header = () => {
     return (
@@ -37,6 +38,7 @@ const Responsive_Header = () => {
                     </div>
                 </div>
             </div>
+            <Cart_Bar />
         </>
     );
 };

@@ -3,7 +3,7 @@ import useCart from "../../Hooks/useCart";
 
 const Product_Card = ({ product }) => {
     const {addCartHandle} = useCart()
-    const { _id, product_code, name, image, price, discounted_price, discount_amount } = product;
+    const { _id, product_code, name, image, price, discounted_price, discount_amount, stock } = product;
     return (
 
         <div className="p-3 border border-base-content group transition-all">
@@ -25,7 +25,7 @@ const Product_Card = ({ product }) => {
                 </div>
             </Link>
 
-            <button onClick={()=>addCartHandle(product_code)} className="primary-btn w-full">Add to cart</button>
+            <button disabled={!stock} onClick={()=>addCartHandle(product_code)} className="primary-btn w-full">Add to cart</button>
         </div>
     );
 };

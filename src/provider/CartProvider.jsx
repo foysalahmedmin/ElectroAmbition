@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { addToDb, getShoppingCart } from "../Utilites/LocalStorageManage";
+import { addToDb, getShoppingCart, removeFromDb } from "../Utilites/LocalStorageManage";
 import axios from "axios";
 
 export const CartContext = createContext(null)
@@ -8,13 +8,14 @@ const CartProvider = ({ children }) => {
     const [saveCart, setSaveCart] = useState([])
     const [cartSubTotal, setCartSubTotal] = useState(0)
     const [totalCart, setTotalCart] = useState(0)
-    const [added, setAdded] = useState(false)
+    const [Updated, setUpdated] = useState(false)
 
     useEffect(() => {
         const storedCart = getShoppingCart()
         const cartPCodes = Object.keys(storedCart)
+        // console.log(cartPCodes)
         if (cartPCodes.length) {
-            axios.post('http://localhost:5000/cartsProduct', { P_Codes: [cartPCodes]})
+            axios.post('https://electro-ambition-server.vercel.app/cartsProduct', { P_Codes: cartPCodes})
                 .then(result => setCartProducts(result.data))
                 .catch(error => console.error(error));
         }
@@ -45,25 +46,30 @@ const CartProvider = ({ children }) => {
                 setCartSubTotal(subTotal)
             }
         }
-    }, [added, cartProducts])
+    }, [Updated, cartProducts])
 
     const addCartHandle = (P_Code) => {
         const storedCart = getShoppingCart()
         const cartPCodes = Object.keys(storedCart)
         if (!cartPCodes.includes(P_Code)) {
-            console.log(P_Code, cartPCodes.includes(P_Code), [...cartPCodes, P_Code])
-            axios.post('http://localhost:5000/cartsProduct', { P_Codes: [...cartPCodes, P_Code] })
+            // console.log(P_Code, cartPCodes.includes(P_Code), [...cartPCodes, P_Code])
+            axios.post('https://electro-ambition-server.vercel.app/cartsProduct', { P_Codes: [...cartPCodes, P_Code] })
                 .then(result => setCartProducts(result.data))
                 .catch(error => console.error(error));
         }
         addToDb(P_Code)
-        setAdded(!added)
+        setUpdated(!Updated)
+    }
+    const removeCartHandle = (P_Code) => {
+        removeFromDb(P_Code)
+        setUpdated(!Updated)
     }
     const CartInfo = {
         saveCart,
         totalCart,
         cartSubTotal,
-        addCartHandle
+        addCartHandle,
+        removeCartHandle
     }
     return (
         <CartContext.Provider value={CartInfo}>

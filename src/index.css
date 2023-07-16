@@ -24,6 +24,6 @@
   }
 
   .primary-btn-outline {
-    @apply btn text-base-100 tracking-[2px] rounded-none border-2 border-primary bg-transparent hover:bg-primary hover:border-primary hover:text-white
+    @apply btn text-primary tracking-[2px] rounded-none border-2 border-primary bg-transparent hover:bg-primary hover:border-primary hover:text-white
   }
 }

@@ -23,7 +23,7 @@ const removeFromDb = P_Code => {
 
 const updateDb = (P_Code, Q) => {
     let shoppingCart = getShoppingCart();
-    // add quantity
+    
     const quantity = shoppingCart[P_Code];
     if (!quantity) {
         shoppingCart[P_Code] = Q;
