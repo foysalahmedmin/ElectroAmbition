@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { addToDb, getShoppingCart, removeFromDb } from "../Utilites/LocalStorageManage";
+import { addToDb, getShoppingCart, removeFromDb, updateDb } from "../Utilites/LocalStorageManage";
 import axios from "axios";
 
 export const CartContext = createContext(null)
@@ -64,12 +64,17 @@ const CartProvider = ({ children }) => {
         removeFromDb(P_Code)
         setUpdated(!Updated)
     }
+    const updateCartDb = (P_Code, Q) => {
+        updateDb(P_Code, Q)
+        setUpdated(!Updated)
+    }
     const CartInfo = {
         saveCart,
         totalCart,
         cartSubTotal,
         addCartHandle,
-        removeCartHandle
+        removeCartHandle,
+        updateCartDb
     }
     return (
         <CartContext.Provider value={CartInfo}>

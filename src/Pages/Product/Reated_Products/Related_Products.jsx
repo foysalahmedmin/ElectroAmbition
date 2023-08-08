@@ -16,18 +16,22 @@ const Related_Products = ({ id, category }) => {
         }
     }, [category, id])
     return (
-        <section className="py-10">
-            <div className="container">
-                <Section_Title firstWord={'Related'} secondWord={'Products'} />
-                <div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-around items-center">
-                        {
-                            products?.slice(0, 4).map(product => <Product_Card key={product._id} product={product} />)
-                        }
+        <>
+            {
+                products.length && <section className="py-10">
+                    <div className="container">
+                        <Section_Title firstWord={'Related'} secondWord={'Products'} />
+                        <div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-around items-center">
+                                {
+                                    products?.slice(0, 4).map(product => <Product_Card key={product._id} product={product} />)
+                                }
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
+            }
+        </>
     );
 };
 

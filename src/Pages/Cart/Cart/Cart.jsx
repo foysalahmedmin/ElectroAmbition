@@ -5,7 +5,7 @@ const Cart = () => {
     return (
         <section className="py-10">
             <div className="container">
-                <div>
+                <div className="flex flex-col md:flex-row gap-5">
                     <Cart_Items />
                     <Carts_Details />
                 </div>

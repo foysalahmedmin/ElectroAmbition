@@ -6,10 +6,11 @@ import Review_Form from "./Review_Form";
 
 const Reviews = ({ product_code }) => {
     const [reviews, setReviews] = useState([])
+    const [updated, setUpdated] = useState(false)
     useEffect(() => {
         axios.get(`https://electro-ambition-server.vercel.app/reviews/${product_code}`)
             .then(result => setReviews(result.data))
-    }, [product_code])
+    }, [product_code, updated])
     return (
         <section className="py-10">
             <div className="container">
@@ -26,13 +27,13 @@ const Reviews = ({ product_code }) => {
                                         {review.image ? <img className="w-10 h-10 rounded-full" src={review.image} alt="" /> : <FaUserCircle className="w-10 h-10" />}
                                         <div>
                                             <h3 className="font-semibold mb-1">{review.name}</h3>
-                                            <p className="mb-1">
+                                            <div className="mb-1">
                                                 <Rating
                                                     style={{ maxWidth: 100 }}
                                                     value={review.rating}
                                                     readOnly
                                                 />
-                                            </p>
+                                            </div>
                                             <p>
                                                 {review.review}
                                             </p>
@@ -42,7 +43,7 @@ const Reviews = ({ product_code }) => {
                             }
                         </div>
                         <div>
-                            <Review_Form product_code={product_code} />
+                            <Review_Form product_code={product_code} setUpdated={setUpdated} updated={updated} />
                         </div>
                     </div>
                 </div>
